@@ -24,9 +24,7 @@ const HikingTrailsPage = () => {
   const [showList, setShowList] = useState<TrailsType[]>([])
 
   async function getData() {
-    const res = await fetch(
-      'https://powerful-mountain-14472.herokuapp.com/api/trails',
-    )
+    const res = await fetch('https://powerfulmountain.herokuapp.com/api/trails')
     const data = await res.json()
     setTrailsData(data)
     setShowList(data)

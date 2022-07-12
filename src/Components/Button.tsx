@@ -28,7 +28,7 @@ export const CollapseButton = ({
         <h2>{children}</h2>
       </div>
       <div className="collapse-content">
-        <p>{details}</p>
+        <h2>{details}</h2>
       </div>
     </div>
   )
