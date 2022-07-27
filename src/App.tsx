@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
 import HikingTrailsPage from './Components/HikingTrailsPage'
 import HomePage from './Components/HomePage'
@@ -8,12 +8,12 @@ function App() {
     <>
       <div>
         <header>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path="/hikingtrails" element={<HikingTrailsPage />} />
               <Route path="/" element={<HomePage />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </header>
       </div>
     </>

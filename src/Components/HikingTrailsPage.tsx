@@ -53,7 +53,7 @@ const HikingTrailsPage = () => {
         <div className="grid justify-center">
           {showList.map(trail => (
             <TrailsCard
-              key={trail.name}
+              key={trail.id}
               name={trail.name}
               length={trail.length}
               elevation={trail.elevation}
