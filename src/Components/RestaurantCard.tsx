@@ -3,7 +3,7 @@ import PhoneIcon from '../svg/PhoneIcon'
 import HyperLinkIcon from '../svg/HyperLinkIcon'
 
 interface Props {
-  pic: any
+  pic: string
   address: string
   addressUrl: string
   phone: string
