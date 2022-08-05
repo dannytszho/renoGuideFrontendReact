@@ -17,7 +17,10 @@ const HomePage = () => {
         <div className="flex justify-center mt-20">
           <img src={Nevada} alt="navada" />
         </div>
-        <h2 className="flex justify-center font-iceland text-2xl m-2">
+        <h2
+          data-testid="homepage-1"
+          className="flex justify-center font-iceland text-2xl m-2"
+        >
           · Reno · Lake Tahoe ·
         </h2>
       </div>
