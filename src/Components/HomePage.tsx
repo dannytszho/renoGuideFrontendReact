@@ -26,33 +26,34 @@ const HomePage = () => {
       </div>
 
       {/* Food and Drinks section */}
-      <div className="grid gap-4 justify-center m-10 font-iceland">
+      <div
+        data-testid="homepage-2"
+        className="grid gap-4 justify-center m-10 font-iceland"
+      >
         <p className="flex justify-center text-2xl m-2 whitespace-pre">
           ↓{'   '}Food & Drinks{'   '}↓
         </p>
-        <div data-testid="homepage-2">
-          {RestaurantData.map(place => (
-            <CollapseButton
-              key={place.name}
-              details={
-                <RestaurantCard
-                  pic={place.pic}
-                  address={place.address}
-                  addressUrl={place.addressUrl}
-                  phone={place.phone}
-                  phoneDisplay={place.phoneDisplay}
-                  hypeLink={place.hypeLink}
-                  hypeLinkDisplay={place.hypeLinkDisplay}
-                />
-              }
-            >
-              <div className="flex">
-                {place.icon}
-                <h2 className="text-2xl mx-auto">{place.name}</h2>
-              </div>
-            </CollapseButton>
-          ))}
-        </div>
+        {RestaurantData.map(place => (
+          <CollapseButton
+            key={place.name}
+            details={
+              <RestaurantCard
+                pic={place.pic}
+                address={place.address}
+                addressUrl={place.addressUrl}
+                phone={place.phone}
+                phoneDisplay={place.phoneDisplay}
+                hypeLink={place.hypeLink}
+                hypeLinkDisplay={place.hypeLinkDisplay}
+              />
+            }
+          >
+            <div className="flex">
+              {place.icon}
+              <h2 className="text-2xl mx-auto">{place.name}</h2>
+            </div>
+          </CollapseButton>
+        ))}
       </div>
       {/* Activities section */}
 
@@ -86,7 +87,12 @@ const HomePage = () => {
           </a>
         </LongButton>
         <LongButton>
-          <a href="https://downtownreno.org/" target="_blank" rel="noreferrer">
+          <a
+            href="https://downtownreno.org/"
+            aria-current="true"
+            target="_blank"
+            rel="noreferrer"
+          >
             <div className="flex">
               <div className="pl-4">
                 <DowntownIcon />

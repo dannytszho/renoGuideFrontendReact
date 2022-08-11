@@ -16,6 +16,12 @@ describe('render Homepage', () => {
       'The Depot' && 'Louis Basque Corner' && 'Genoa Bar and Saloon',
     )
   })
+
+  it('click and direct to Reno downtown page', () => {
+    render(<HomePage />, { wrapper: HashRouter })
+    const clickElement = screen.getByRole('link', { current: true })
+    expect(clickElement).toHaveAttribute('href', 'https://downtownreno.org/')
+  })
 })
 
 //   beforeEach(()=> {
