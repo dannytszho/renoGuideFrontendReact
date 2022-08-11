@@ -3,11 +3,18 @@ import { HashRouter } from 'react-router-dom'
 import HomePage from '../HomePage'
 
 describe('render Homepage', () => {
-  render(<HomePage />, { wrapper: HashRouter })
-
   it('contains the string "Reno & Lake Tahoe"', () => {
+    render(<HomePage />, { wrapper: HashRouter })
     const locationElement = screen.getByTestId('homepage-1')
     expect(locationElement.textContent).toMatch(/· Reno · Lake Tahoe ·/)
+  })
+
+  it('contains all 3 restaurants "The Depot", "Louis Basque Corner", "Genoa Bar and Saloon"', () => {
+    render(<HomePage />, { wrapper: HashRouter })
+    const foodElement = screen.getByTestId('homepage-2')
+    expect(foodElement.textContent).toMatch(
+      'The Depot' && 'Louis Basque Corner' && 'Genoa Bar and Saloon',
+    )
   })
 })
 

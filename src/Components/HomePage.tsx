@@ -26,33 +26,34 @@ const HomePage = () => {
       </div>
 
       {/* Food and Drinks section */}
-      <section className="grid gap-4 justify-center m-10 font-iceland">
+      <div className="grid gap-4 justify-center m-10 font-iceland">
         <p className="flex justify-center text-2xl m-2 whitespace-pre">
           ↓{'   '}Food & Drinks{'   '}↓
         </p>
-
-        {RestaurantData.map(place => (
-          <CollapseButton
-            key={place.name}
-            details={
-              <RestaurantCard
-                pic={place.pic}
-                address={place.address}
-                addressUrl={place.addressUrl}
-                phone={place.phone}
-                phoneDisplay={place.phoneDisplay}
-                hypeLink={place.hypeLink}
-                hypeLinkDisplay={place.hypeLinkDisplay}
-              />
-            }
-          >
-            <div className="flex">
-              {place.icon}
-              <h2 className="text-2xl mx-auto">{place.name}</h2>
-            </div>
-          </CollapseButton>
-        ))}
-      </section>
+        <div data-testid="homepage-2">
+          {RestaurantData.map(place => (
+            <CollapseButton
+              key={place.name}
+              details={
+                <RestaurantCard
+                  pic={place.pic}
+                  address={place.address}
+                  addressUrl={place.addressUrl}
+                  phone={place.phone}
+                  phoneDisplay={place.phoneDisplay}
+                  hypeLink={place.hypeLink}
+                  hypeLinkDisplay={place.hypeLinkDisplay}
+                />
+              }
+            >
+              <div className="flex">
+                {place.icon}
+                <h2 className="text-2xl mx-auto">{place.name}</h2>
+              </div>
+            </CollapseButton>
+          ))}
+        </div>
+      </div>
       {/* Activities section */}
 
       <section className="grid gap-4 justify-center m-10 font-iceland">
