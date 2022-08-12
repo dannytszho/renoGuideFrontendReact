@@ -22,16 +22,10 @@ describe('render Homepage', () => {
     const clickElement = screen.getByRole('link', { current: true })
     expect(clickElement).toHaveAttribute('href', 'https://downtownreno.org/')
   })
+
+  it('click and direct to hikingtrails page', () => {
+    render(<HomePage />, { wrapper: HashRouter })
+    const links: HTMLAnchorElement[] = screen.getAllByRole('link')
+    expect(links[9].href).toContain('#/hikingtrails')
+  })
 })
-
-//   beforeEach(()=> {
-//     view()
-
-//   })
-// })
-
-// test('render homepage', () => {
-//   view
-//   //render(<HomePage />, { wrapper: BrowserRouter })
-//   //const homepageElement = screen.getByText('· Reno · Lake Tahoe ·')
-//   expect(homepageElement).toBeTruthy()
