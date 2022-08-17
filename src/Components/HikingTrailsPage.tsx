@@ -24,10 +24,12 @@ export const trailsAPI_URL = 'https://powerfulmountain.herokuapp.com/api/trails'
 const HikingTrailsPage = () => {
   const [trailsData, setTrailsData] = useState<TrailsType[]>([])
   const [showList, setShowList] = useState<TrailsType[]>([])
+  const [hasError, setHasError] = useState(false)
 
   async function getData() {
     const res = await fetch(trailsAPI_URL)
     if (res.status !== 200) {
+      setHasError(true)
       throw res.statusText
     }
     const data = await res.json()
@@ -56,6 +58,7 @@ const HikingTrailsPage = () => {
         <TrailsFilter trailsData={trailsData} setShowList={setShowList} />
 
         <div className="grid justify-center">
+          {hasError ? <h2>Opps! Please refresh...</h2> : null}
           {showList.map(trail => (
             <TrailsCard
               key={trail.id}
@@ -71,6 +74,7 @@ const HikingTrailsPage = () => {
           ))}
         </div>
       </div>
+      <br />
       <Footer />
     </>
   )
