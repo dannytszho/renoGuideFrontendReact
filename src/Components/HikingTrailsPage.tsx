@@ -30,7 +30,6 @@ const HikingTrailsPage = () => {
     const res = await fetch(trailsAPI_URL)
     if (res.status !== 200) {
       setHasError(true)
-      throw res.statusText
     }
     const data = await res.json()
     setTrailsData(data)
@@ -58,7 +57,7 @@ const HikingTrailsPage = () => {
         <TrailsFilter trailsData={trailsData} setShowList={setShowList} />
 
         <div className="grid justify-center">
-          {hasError ? <h2>Opps! Please refresh...</h2> : null}
+          {hasError ? <h2>Opps! Please reload the page...</h2> : null}
           {showList.map(trail => (
             <TrailsCard
               key={trail.id}

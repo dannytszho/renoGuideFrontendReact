@@ -39,6 +39,10 @@ const trailResponse = rest.get(trailsAPI_URL, (req, res, ctx) => {
   )
 })
 
+const trailErrorResponse = rest.get(trailsAPI_URL, (req, res, ctx) => {
+  return res(ctx.status(404))
+})
+
 const server = setupServer(trailResponse)
 
 beforeAll(() => server.listen())
@@ -51,8 +55,15 @@ test('it should have the correct trails, Angels Landing Trail', async () => {
   expect(trail).toBeVisible()
 })
 
-test('it should have the correct trails, AGalena Creek Trail', async () => {
+test('it should have the correct trails, Galena Creek Trail', async () => {
   render(<HikingTrailsPage />, { wrapper: HashRouter })
   const trail = await screen.findByText('Galena Creek Trail')
   expect(trail).toBeVisible()
+})
+
+test('it should handle error message from trail', async () => {
+  server.use(trailErrorResponse)
+  render(<HikingTrailsPage />, { wrapper: HashRouter })
+  const trailError = await screen.findByText('Opps! Please reload the page...')
+  expect(trailError).toBeVisible()
 })
