@@ -19,12 +19,14 @@ export interface TrailsType {
   url: string
 }
 
+export const trailsAPI_URL = 'https://powerfulmountain.herokuapp.com/api/trails'
+
 const HikingTrailsPage = () => {
   const [trailsData, setTrailsData] = useState<TrailsType[]>([])
   const [showList, setShowList] = useState<TrailsType[]>([])
 
   async function getData() {
-    const res = await fetch('https://powerfulmountain.herokuapp.com/api/trails')
+    const res = await fetch(trailsAPI_URL)
     if (res.status !== 200) {
       throw res.statusText
     }

@@ -4,8 +4,8 @@ const Rating = ({ rating }: { rating: number }) => {
   return (
     <div>
       <span className="flex">
-        {[...Array(Math.floor(rating))].map(key => (
-          <div key={key}>
+        {[...Array(Math.floor(rating))].map((key, i) => (
+          <div key={i}>
             <FaStar color={'#ffc107'} />
           </div>
         ))}
@@ -14,8 +14,8 @@ const Rating = ({ rating }: { rating: number }) => {
             <FaStarHalfAlt color={'#ffc107'} />
           </div>
         )}
-        {[...Array(5 - Math.ceil(rating))].map(key => (
-          <div key={key}>
+        {[...Array(5 - Math.ceil(rating))].map((key, i) => (
+          <div key={i}>
             <FaStar color={'#e4e5e9'} />
           </div>
         ))}
