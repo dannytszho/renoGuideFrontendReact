@@ -25,6 +25,9 @@ const HikingTrailsPage = () => {
 
   async function getData() {
     const res = await fetch('https://powerfulmountain.herokuapp.com/api/trails')
+    if (res.status !== 200) {
+      throw res.statusText
+    }
     const data = await res.json()
     setTrailsData(data)
     setShowList(data)
