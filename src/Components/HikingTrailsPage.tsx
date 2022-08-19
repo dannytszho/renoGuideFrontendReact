@@ -6,6 +6,7 @@ import Rating from './Rating'
 import { Link } from 'react-router-dom'
 import LeftArrowIcon from '../svg/LeftArrowIcon'
 import TrailsFilter from './TrailsFilter'
+import FetchTrails from './FetchTrails'
 
 export interface TrailsType {
   id: string
@@ -22,23 +23,43 @@ export interface TrailsType {
 export const trailsAPI_URL = 'https://powerfulmountain.herokuapp.com/api/trails'
 
 const HikingTrailsPage = () => {
+  const { data } = FetchTrails(
+    'https://powerfulmountain.herokuapp.com/api/trails',
+  )
   const [trailsData, setTrailsData] = useState<TrailsType[]>([])
   const [showList, setShowList] = useState<TrailsType[]>([])
-  const [hasError, setHasError] = useState(false)
+  // const [hasError, setHasError] = useState(false)
 
-  async function getData() {
-    const res = await fetch(trailsAPI_URL)
-    if (res.status !== 200) {
-      setHasError(true)
-    }
-    const data = await res.json()
+  // const {
+  //   id,
+  //   name,
+  //   length,
+  //   elevation,
+  //   imageUrl,
+  //   difficulty,
+  //   rating,
+  //   duration,
+  //   url,
+  // } = fetchRepsonsedata.data.data
+  useEffect(() => {
     setTrailsData(data)
     setShowList(data)
-  }
+  }, [data])
 
-  useEffect(() => {
-    getData()
-  }, [])
+  // async function getData() {
+  //   const res = await fetch(trailsAPI_URL)
+  //   if (res.status !== 200) {
+  //     setHasError(true)
+  //   }
+  //   const data = await res.json()
+  //   setTrailsData(data)
+  //   setShowList(data)
+  //   return data
+  // }
+
+  // useEffect(() => {
+  //   getData()
+  // }, [])
 
   return (
     <>
@@ -57,7 +78,7 @@ const HikingTrailsPage = () => {
         <TrailsFilter trailsData={trailsData} setShowList={setShowList} />
 
         <div className="grid justify-center">
-          {hasError ? <h2>Opps! Please reload the page...</h2> : null}
+          {/* {hasError ? <h2>Opps! Please reload the page...</h2> : null} */}
           {showList.map(trail => (
             <TrailsCard
               key={trail.id}
