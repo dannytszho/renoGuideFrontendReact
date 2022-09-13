@@ -1,4 +1,4 @@
-import { getData } from './FetchTrails'
+import { getData } from '../FetchTrails'
 
 export const trailsData = [
   {

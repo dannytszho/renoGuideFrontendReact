@@ -28,7 +28,6 @@ const HikingTrailsPage = () => {
   // )
   const [trailsData, setTrailsData] = useState<any>([])
   const [showList, setShowList] = useState<any>([])
-  // const [hasError, setHasError] = useState(false)
 
   // const {
   //   id,
@@ -80,7 +79,6 @@ const HikingTrailsPage = () => {
         <TrailsFilter trailsData={trailsData} setShowList={setShowList} />
 
         <div className="grid justify-center">
-          {/* {hasError ? <h2>Opps! Please reload the page...</h2> : null} */}
           {showList.map(
             (trail: {
               id: Key | null | undefined
