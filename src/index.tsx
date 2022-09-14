@@ -4,9 +4,24 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+import { Amplify } from 'aws-amplify'
+import { Authenticator } from '@aws-amplify/ui-react'
+
+Amplify.configure({
+  Auth: {
+    identityPoolId: 'us-east-1:66cb9424-f5ab-49cc-beee-cc28ffe5a296',
+    region: 'us-east-1',
+    userPoolId: 'us-east-1_SX3VazAiM',
+    userPoolWebClientId: '2caidilhb8lbvfhdqis93v4mpg',
+    mandatorySignIn: true,
+  },
+})
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Authenticator.Provider>
+      <App />
+    </Authenticator.Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 )
