@@ -5,6 +5,7 @@ import HomePage from './Components/HomePage'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import NavBar from './Components/NavBar'
+import HikingTrailsPageGQL from './Components/HikingTrailsPageGQL'
 
 function App({ signOut, user }: any) {
   return (
@@ -16,6 +17,10 @@ function App({ signOut, user }: any) {
           <HashRouter>
             <Routes>
               <Route path="/hikingtrails" element={<HikingTrailsPage />} />
+              <Route
+                path="/hikingtrailsgql"
+                element={<HikingTrailsPageGQL />}
+              />
               <Route path="/" element={<HomePage />} />
             </Routes>
           </HashRouter>

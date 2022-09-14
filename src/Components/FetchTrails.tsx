@@ -12,7 +12,6 @@ async function getData() {
     const res = await fetch('https://powerfulmountain.herokuapp.com/api/trails')
     const data = await res.json()
     // setData(data)
-    // console.log(data)
     return data
   } catch (e) {
     console.error(e)

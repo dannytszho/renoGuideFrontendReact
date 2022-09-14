@@ -73,6 +73,16 @@ const HomePage = () => {
           </Link>
         </LongButton>
         <LongButton>
+          <Link to="/hikingtrailsgql">
+            <div className="flex">
+              <div className="pl-4">
+                <HikerIcon />
+              </div>
+              <h2 className="text-2xl mx-auto">HikingGQL</h2>
+            </div>
+          </Link>
+        </LongButton>
+        <LongButton>
           <a
             href="http://www.raftingreno.com/"
             target="_blank"
