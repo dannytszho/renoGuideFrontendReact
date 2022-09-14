@@ -5,7 +5,6 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 
 import { Amplify } from 'aws-amplify'
-import { Authenticator } from '@aws-amplify/ui-react'
 
 Amplify.configure({
   Auth: {
@@ -19,9 +18,7 @@ Amplify.configure({
 
 ReactDOM.render(
   <React.StrictMode>
-    <Authenticator.Provider>
-      <App />
-    </Authenticator.Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 )

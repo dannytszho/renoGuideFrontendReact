@@ -23,44 +23,15 @@ export interface TrailsType {
 export const trailsAPI_URL = 'https://powerfulmountain.herokuapp.com/api/trails'
 
 const HikingTrailsPage = () => {
-  // const { data } = FetchTrails(
-  //   'https://powerfulmountain.herokuapp.com/api/trails',
-  // )
   const [trailsData, setTrailsData] = useState<any>([])
   const [showList, setShowList] = useState<any>([])
 
-  // const {
-  //   id,
-  //   name,
-  //   length,
-  //   elevation,
-  //   imageUrl,
-  //   difficulty,
-  //   rating,
-  //   duration,
-  //   url,
-  // } = fetchRepsonsedata.data.data
   useEffect(() => {
     getData().then(data => {
       setTrailsData(data)
       setShowList(data)
     })
   }, [])
-
-  // async function getData() {
-  //   const res = await fetch(trailsAPI_URL)
-  //   if (res.status !== 200) {
-  //     setHasError(true)
-  //   }
-  //   const data = await res.json()
-  //   setTrailsData(data)
-  //   setShowList(data)
-  //   return data
-  // }
-
-  // useEffect(() => {
-  //   getData()
-  // }, [])
 
   return (
     <>
