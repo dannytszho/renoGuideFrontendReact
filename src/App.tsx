@@ -7,7 +7,7 @@ import '@aws-amplify/ui-react/styles.css'
 import NavBar from './Components/Utils/NavBar'
 import HikingTrailsPageGQL from './Components/HikingTrailsPageGQL'
 import Login from './Components/Login'
-import RequiredAuth from './Components/RequiredAuth'
+import RequiredAuth from './Components/Utils/RequiredAuth'
 
 function App() {
   return (
