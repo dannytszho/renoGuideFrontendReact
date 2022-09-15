@@ -1,4 +1,4 @@
-import TrailsCard from './TrailsCard'
+import TrailsCard from './Utils/TrailsCard'
 import { Key, useEffect, useState } from 'react'
 import { SquareButton } from './Utils/Button'
 import Footer from './Utils/Footer'
