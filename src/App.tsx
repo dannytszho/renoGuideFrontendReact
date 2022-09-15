@@ -6,7 +6,7 @@ import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import NavBar from './Components/Utils/NavBar'
 import HikingTrailsPageGQL from './Components/HikingTrailsPageGQL'
-import Login from './Components/Login'
+import LoginPage from './Components/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
                   </RequiredAuth>
                 }
               />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<LoginPage />} />
             </Route>
           </Routes>
         </HashRouter>

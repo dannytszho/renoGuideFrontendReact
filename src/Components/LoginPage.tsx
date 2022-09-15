@@ -3,7 +3,7 @@ import '@aws-amplify/ui-react/styles.css'
 import { useEffect, useMemo } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-const Login = () => {
+const LoginPage = () => {
   const { route } = useAuthenticator(context => [context.route])
   const navigate = useNavigate()
   const location = useLocation()
@@ -28,4 +28,4 @@ const Login = () => {
     </div>
   )
 }
-export default Login
+export default LoginPage
