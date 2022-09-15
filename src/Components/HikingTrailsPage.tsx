@@ -5,7 +5,7 @@ import Footer from './Utils/Footer'
 import Rating from './Utils/Rating'
 import { Link } from 'react-router-dom'
 import LeftArrowIcon from '../svg/LeftArrowIcon'
-import TrailsFilter from './TrailsFilter'
+import TrailsFilter from './Utils/TrailsFilter'
 import { getData } from './Utils/FetchTrails'
 
 export interface TrailsType {
