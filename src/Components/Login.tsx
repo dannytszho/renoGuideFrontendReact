@@ -1,4 +1,6 @@
+import { Authenticator } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
 const Login = () => {
-  return <h1>Login</h1>
+  return <Authenticator></Authenticator>
 }
 export default Login
