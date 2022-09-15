@@ -1,12 +1,12 @@
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
-import HikingTrailsPage from './Components/HikingTrailsPage'
-import HomePage from './Components/HomePage'
+import HikingTrailsPage from './Components/Pages/HikingTrailsPage'
+import HomePage from './Components/Pages/HomePage'
 import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import NavBar from './Components/Utils/NavBar'
-import HikingTrailsPageGQL from './Components/HikingTrailsPageGQL'
-import LoginPage from './Components/LoginPage'
+import HikingTrailsPageGQL from './Components/Pages/HikingTrailsPageGQL'
+import LoginPage from './Components/Pages/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
 
 function App() {

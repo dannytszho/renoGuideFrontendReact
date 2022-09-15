@@ -1,12 +1,12 @@
-import TrailsCard from './Utils/TrailsCard'
+import TrailsCard from '../Utils/TrailsCard'
 import { Key, useEffect, useState } from 'react'
-import { SquareButton } from './Utils/Button'
-import Footer from './Utils/Footer'
-import Rating from './Utils/Rating'
+import { SquareButton } from '../Utils/Button'
+import Footer from '../Utils/Footer'
+import Rating from '../Utils/Rating'
 import { Link } from 'react-router-dom'
-import LeftArrowIcon from '../svg/LeftArrowIcon'
-import TrailsFilter from './Utils/TrailsFilter'
-import { getData } from './Utils/FetchTrails'
+import LeftArrowIcon from '../../svg/LeftArrowIcon'
+import TrailsFilter from '../Utils/TrailsFilter'
+import { getData } from '../Utils/FetchTrails'
 
 export interface TrailsType {
   primary_key: string

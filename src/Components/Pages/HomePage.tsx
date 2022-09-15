@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import Nevada from '../Images/Nevada.png'
-import { LongButton, CollapseButton } from './Utils/Button'
-import HikerIcon from '../svg/HikerIcon'
-import KayakIcon from '../svg/KayakIcon'
-import DowntownIcon from '../svg/DowntownIcon'
-import CoffeeIcon from '../svg/CoffeeIcon'
-import Footer from './Utils/Footer'
-import RestaurantCard from './Utils/RestaurantCard'
-import RestaurantData from '../data/RestaurantData'
+import Nevada from '../../Images/Nevada.png'
+import { LongButton, CollapseButton } from '../Utils/Button'
+import HikerIcon from '../../svg/HikerIcon'
+import KayakIcon from '../../svg/KayakIcon'
+import DowntownIcon from '../../svg/DowntownIcon'
+import CoffeeIcon from '../../svg/CoffeeIcon'
+import Footer from '../Utils/Footer'
+import RestaurantCard from '../Utils/RestaurantCard'
+import RestaurantData from '../../data/RestaurantData'
 
 const HomePage = () => {
   return (

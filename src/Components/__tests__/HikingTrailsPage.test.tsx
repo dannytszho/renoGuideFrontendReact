@@ -1,7 +1,7 @@
 import { screen, render } from '@testing-library/react'
 import { HashRouter } from 'react-router-dom'
-import HikingTrailsPage from '../HikingTrailsPage'
-import { trailsAPI_URL } from '../HikingTrailsPage'
+import HikingTrailsPage from '../Pages/HikingTrailsPage'
+import { trailsAPI_URL } from '../Pages/HikingTrailsPage'
 
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'

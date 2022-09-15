@@ -1,14 +1,14 @@
-import { getAllTrails } from './Utils/FetchTrails'
+import { getAllTrails } from '../Utils/FetchTrails'
 import { useEffect, useState } from 'react'
-import { SquareButton } from './Utils/Button'
+import { SquareButton } from '../Utils/Button'
 import { Link } from 'react-router-dom'
-import LeftArrowIcon from '../svg/LeftArrowIcon'
-import TrailsFilter from './Utils/TrailsFilter'
-import TrailsCard from './Utils/TrailsCard'
-import Rating from './Utils/Rating'
+import LeftArrowIcon from '../../svg/LeftArrowIcon'
+import TrailsFilter from '../Utils/TrailsFilter'
+import TrailsCard from '../Utils/TrailsCard'
+import Rating from '../Utils/Rating'
 import { TrailsType } from './HikingTrailsPage'
 import { Loader } from '@aws-amplify/ui-react'
-import Footer from './Utils/Footer'
+import Footer from '../Utils/Footer'
 
 const HikingTrailsPageGQL = () => {
   const [trailsData, setTrailsData] = useState<any>([])
