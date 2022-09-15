@@ -1,20 +1,5 @@
 import { API, graphqlOperation } from 'aws-amplify'
-
-const GET_ALL_TRAILS = `
-  query {
-    getAllTrails(limit: 3) {
-      primary_key
-      name
-      rating
-      url
-      duration
-      difficulty
-      length
-      elevation
-      imageUrl
-    }
-  }
-`
+import { GET_ALL_TRAILS } from '../graphql/trails'
 
 export const getAllTrails = async () => {
   try {

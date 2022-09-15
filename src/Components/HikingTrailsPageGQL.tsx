@@ -7,16 +7,19 @@ import TrailsFilter from './TrailsFilter'
 import TrailsCard from './TrailsCard'
 import Rating from './Rating'
 import { TrailsType } from './HikingTrailsPage'
+import { Loader } from '@aws-amplify/ui-react'
 
 const HikingTrailsPageGQL = () => {
   const [trailsData, setTrailsData] = useState<any>([])
   const [showList, setShowList] = useState<any>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     getAllTrails()
       .then(data => {
         setTrailsData(data)
         setShowList(data)
+        setIsLoading(false)
       })
       .catch(console.error)
   }, [])
@@ -39,6 +42,9 @@ const HikingTrailsPageGQL = () => {
           trailsData={trailsData.data?.getAllTrails}
           setShowList={setShowList}
         />
+        <div>
+          {isLoading ? <Loader variation="linear" fr={undefined} /> : null}
+        </div>
 
         <div className="grid justify-center">
           {showList.data?.getAllTrails
