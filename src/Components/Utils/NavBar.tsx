@@ -1,7 +1,6 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
-import userEvent from '@testing-library/user-event'
 import { Outlet, useNavigate } from 'react-router-dom'
-import UserIcon from '../svg/UserIcon'
+import UserIcon from '../../svg/UserIcon'
 
 const NavBar = () => {
   const { route, signOut, user } = useAuthenticator(context => [

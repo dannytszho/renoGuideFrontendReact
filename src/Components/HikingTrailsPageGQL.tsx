@@ -1,4 +1,4 @@
-import { getAllTrails } from './GetAllTrails'
+import { getAllTrails } from './Utils/FetchTrails'
 import { useEffect, useState } from 'react'
 import { SquareButton } from './Utils/Button'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,7 @@ import TrailsCard from './TrailsCard'
 import Rating from './Rating'
 import { TrailsType } from './HikingTrailsPage'
 import { Loader } from '@aws-amplify/ui-react'
+import Footer from './Utils/Footer'
 
 const HikingTrailsPageGQL = () => {
   const [trailsData, setTrailsData] = useState<any>([])
@@ -76,6 +77,8 @@ const HikingTrailsPageGQL = () => {
               ))}
         </div>
       </div>
+      <br />
+      <Footer />
     </>
   )
 }

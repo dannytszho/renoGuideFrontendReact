@@ -5,7 +5,7 @@ import HikerIcon from '../svg/HikerIcon'
 import KayakIcon from '../svg/KayakIcon'
 import DowntownIcon from '../svg/DowntownIcon'
 import CoffeeIcon from '../svg/CoffeeIcon'
-import Footer from './Footer'
+import Footer from './Utils/Footer'
 import RestaurantCard from './RestaurantCard'
 import RestaurantData from '../data/RestaurantData'
 

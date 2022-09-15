@@ -1,12 +1,12 @@
 import TrailsCard from './TrailsCard'
 import { Key, useEffect, useState } from 'react'
 import { SquareButton } from './Utils/Button'
-import Footer from './Footer'
+import Footer from './Utils/Footer'
 import Rating from './Rating'
 import { Link } from 'react-router-dom'
 import LeftArrowIcon from '../svg/LeftArrowIcon'
 import TrailsFilter from './TrailsFilter'
-import { getData } from './FetchTrails'
+import { getData } from './Utils/FetchTrails'
 
 export interface TrailsType {
   primary_key: string
