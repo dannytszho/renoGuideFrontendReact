@@ -1,6 +1,6 @@
 import { getAllTrails } from './GetAllTrails'
 import { useEffect, useState } from 'react'
-import { SquareButton } from './Button'
+import { SquareButton } from './Utils/Button'
 import { Link } from 'react-router-dom'
 import LeftArrowIcon from '../svg/LeftArrowIcon'
 import TrailsFilter from './TrailsFilter'

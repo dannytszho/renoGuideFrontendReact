@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Nevada from '../Images/Nevada.png'
-import { LongButton, CollapseButton } from './Button'
+import { LongButton, CollapseButton } from './Utils/Button'
 import HikerIcon from '../svg/HikerIcon'
 import KayakIcon from '../svg/KayakIcon'
 import DowntownIcon from '../svg/DowntownIcon'
@@ -8,8 +8,6 @@ import CoffeeIcon from '../svg/CoffeeIcon'
 import Footer from './Footer'
 import RestaurantCard from './RestaurantCard'
 import RestaurantData from '../data/RestaurantData'
-import { Authenticator } from '@aws-amplify/ui-react'
-import NavBar from './NavBar'
 
 const HomePage = () => {
   return (

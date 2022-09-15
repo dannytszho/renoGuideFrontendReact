@@ -1,6 +1,6 @@
 import TrailsCard from './TrailsCard'
 import { Key, useEffect, useState } from 'react'
-import { SquareButton } from './Button'
+import { SquareButton } from './Utils/Button'
 import Footer from './Footer'
 import Rating from './Rating'
 import { Link } from 'react-router-dom'
