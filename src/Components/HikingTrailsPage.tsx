@@ -9,6 +9,7 @@ import TrailsFilter from './TrailsFilter'
 import { getData } from './FetchTrails'
 
 export interface TrailsType {
+  primary_key: string
   id: string
   name: string
   length: string
