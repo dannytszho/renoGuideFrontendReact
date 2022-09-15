@@ -6,7 +6,7 @@ import KayakIcon from '../svg/KayakIcon'
 import DowntownIcon from '../svg/DowntownIcon'
 import CoffeeIcon from '../svg/CoffeeIcon'
 import Footer from './Utils/Footer'
-import RestaurantCard from './RestaurantCard'
+import RestaurantCard from './Utils/RestaurantCard'
 import RestaurantData from '../data/RestaurantData'
 
 const HomePage = () => {

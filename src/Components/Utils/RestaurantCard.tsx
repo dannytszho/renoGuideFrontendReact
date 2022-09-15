@@ -1,6 +1,6 @@
-import LocationIcon from '../svg/LocationIcon'
-import PhoneIcon from '../svg/PhoneIcon'
-import HyperLinkIcon from '../svg/HyperLinkIcon'
+import LocationIcon from '../../svg/LocationIcon'
+import PhoneIcon from '../../svg/PhoneIcon'
+import HyperLinkIcon from '../../svg/HyperLinkIcon'
 
 interface Props {
   pic: string
