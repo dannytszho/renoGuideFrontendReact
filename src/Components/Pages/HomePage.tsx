@@ -61,7 +61,21 @@ const HomePage = () => {
         <p className="flex justify-center text-2xl whitespace-pre">
           ↓{'   '}Activities{'   '}↓
         </p>
-
+        <LongButton>
+          <Link to="/hikingtrailsgql">
+            <div className="flex">
+              <div className="pl-4">
+                <HikerIcon />
+              </div>
+              <h2 className="flex text-2xl mx-auto">
+                HikingGQL{' '}
+                <p className="text-sm mt-2 whitespace-pre">
+                  {'    '}( Member content )
+                </p>
+              </h2>
+            </div>
+          </Link>
+        </LongButton>
         <LongButton>
           <Link to="/hikingtrails">
             <div className="flex">
@@ -69,16 +83,6 @@ const HomePage = () => {
                 <HikerIcon />
               </div>
               <h2 className="text-2xl mx-auto">Hiking</h2>
-            </div>
-          </Link>
-        </LongButton>
-        <LongButton>
-          <Link to="/hikingtrailsgql">
-            <div className="flex">
-              <div className="pl-4">
-                <HikerIcon />
-              </div>
-              <h2 className="text-2xl mx-auto">HikingGQL</h2>
             </div>
           </Link>
         </LongButton>

@@ -1,8 +1,6 @@
 import { getAllTrails } from '../Utils/FetchTrails'
 import { useEffect, useState } from 'react'
 import { PreviousButton, SquareButton } from '../Utils/Button'
-import { Link } from 'react-router-dom'
-import LeftArrowIcon from '../../svg/LeftArrowIcon'
 import TrailsFilter from '../Utils/TrailsFilter'
 import TrailsCard from '../Utils/TrailsCard'
 import Rating from '../Utils/Rating'
