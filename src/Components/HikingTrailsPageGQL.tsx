@@ -21,7 +21,7 @@ const HikingTrailsPageGQL = () => {
         setShowList(data)
         setIsLoading(false)
       })
-      .catch(console.error)
+      .catch(err => alert(err))
   }, [])
 
   return (

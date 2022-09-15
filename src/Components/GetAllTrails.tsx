@@ -6,6 +6,6 @@ export const getAllTrails = async () => {
     const res = await API.graphql(graphqlOperation(GET_ALL_TRAILS))
     return res
   } catch (e) {
-    console.error(e)
+    throw e
   }
 }

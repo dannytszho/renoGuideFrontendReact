@@ -8,6 +8,8 @@ import CoffeeIcon from '../svg/CoffeeIcon'
 import Footer from './Footer'
 import RestaurantCard from './RestaurantCard'
 import RestaurantData from '../data/RestaurantData'
+import { Authenticator } from '@aws-amplify/ui-react'
+import NavBar from './NavBar'
 
 const HomePage = () => {
   return (
