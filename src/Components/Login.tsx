@@ -9,7 +9,7 @@ const Login = () => {
   const location = useLocation()
 
   const navigatePathName = useMemo(() => {
-    const state = location.state as { from: string }
+    const state = location.state as { from: Location }
 
     if (state && state.from) {
       return state.from
@@ -23,7 +23,7 @@ const Login = () => {
     }
   }, [route, navigate, navigatePathName])
   return (
-    <div className="auth-wrapper">
+    <div className="auth-wrapper mt-28">
       <Authenticator></Authenticator>
     </div>
   )

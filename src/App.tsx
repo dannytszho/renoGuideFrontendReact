@@ -7,6 +7,7 @@ import '@aws-amplify/ui-react/styles.css'
 import NavBar from './Components/NavBar'
 import HikingTrailsPageGQL from './Components/HikingTrailsPageGQL'
 import Login from './Components/Login'
+import RequiredAuth from './Components/RequiredAuth'
 
 function App() {
   return (
@@ -19,7 +20,11 @@ function App() {
               <Route path="/hikingtrails" element={<HikingTrailsPage />} />
               <Route
                 path="/hikingtrailsgql"
-                element={<HikingTrailsPageGQL />}
+                element={
+                  <RequiredAuth>
+                    <HikingTrailsPageGQL />
+                  </RequiredAuth>
+                }
               />
               <Route path="/login" element={<Login />} />
             </Route>

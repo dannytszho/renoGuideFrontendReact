@@ -1,9 +1,10 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
+import userEvent from '@testing-library/user-event'
 import { Outlet, useNavigate } from 'react-router-dom'
 import UserIcon from '../svg/UserIcon'
 
 const NavBar = () => {
-  const { route, signOut } = useAuthenticator(context => [
+  const { route, signOut, user } = useAuthenticator(context => [
     context.route,
     context.signOut,
   ])
@@ -17,7 +18,7 @@ const NavBar = () => {
     <>
       <nav>
         {route !== 'authenticated' ? (
-          <div className="flex justify-end mt-6 mb-28 mr-5 font-iceland">
+          <div className="flex justify-end mt-6 mr-5 font-iceland">
             <div>
               <button
                 className="w-[68px] h-[30px] ml-4 border rounded-lg font-semibold bg-zinc-200 hover:cursor-pointer hover:scale-[103%]"
@@ -34,11 +35,11 @@ const NavBar = () => {
             </div>
           </div>
         ) : (
-          <div className="flex justify-end mt-6 mb-28 mr-5 font-iceland">
+          <div className="flex justify-end mt-6 mr-5 font-iceland">
             <div className="mt-0.5 mr-1">
               <UserIcon />
             </div>
-            <h1>User</h1>
+            <h1>{user.attributes?.email}</h1>
             <button
               className="w-[68px] h-[30px] ml-4 border rounded-lg font-semibold bg-zinc-200 hover:cursor-pointer hover:scale-[103%]"
               onClick={() => logOut()}
