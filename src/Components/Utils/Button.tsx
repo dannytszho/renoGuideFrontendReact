@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import LeftArrowIcon from '../../svg/LeftArrowIcon'
+
 export const LongButton = ({ children }: { children: React.ReactNode }) => {
   return (
     <button className="w-[350px] md:w-[650px] h-[60px] border rounded-lg bg-zinc-200 hover:cursor-pointer hover:scale-[102%]">
@@ -31,5 +34,21 @@ export const CollapseButton = ({
         <h2>{details}</h2>
       </div>
     </div>
+  )
+}
+
+export const PreviousButton = () => {
+  return (
+    <>
+      <div className="flex m-5 justify-start">
+        <SquareButton>
+          <Link to="/">
+            <div className="p-2.5">
+              <LeftArrowIcon />
+            </div>
+          </Link>
+        </SquareButton>
+      </div>
+    </>
   )
 }

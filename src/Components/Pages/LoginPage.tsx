@@ -2,6 +2,7 @@ import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import { useEffect, useMemo } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { PreviousButton } from '../Utils/Button'
 
 const LoginPage = () => {
   const { route } = useAuthenticator(context => [context.route])
@@ -23,9 +24,12 @@ const LoginPage = () => {
     }
   }, [route, navigate, navigatePathName])
   return (
-    <div className="auth-wrapper mt-28">
-      <Authenticator></Authenticator>
-    </div>
+    <>
+      <PreviousButton />
+      <div className="auth-wrapper mt-28">
+        <Authenticator></Authenticator>
+      </div>
+    </>
   )
 }
 export default LoginPage

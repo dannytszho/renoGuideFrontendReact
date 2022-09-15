@@ -1,6 +1,6 @@
 import TrailsCard from '../Utils/TrailsCard'
 import { Key, useEffect, useState } from 'react'
-import { SquareButton } from '../Utils/Button'
+import { PreviousButton, SquareButton } from '../Utils/Button'
 import Footer from '../Utils/Footer'
 import Rating from '../Utils/Rating'
 import { Link } from 'react-router-dom'
@@ -37,15 +37,7 @@ const HikingTrailsPage = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="flex m-5 justify-start">
-          <SquareButton>
-            <Link to="/">
-              <div className="p-2.5">
-                <LeftArrowIcon />
-              </div>
-            </Link>
-          </SquareButton>
-        </div>
+        <PreviousButton />
 
         {/* Filter section */}
         <TrailsFilter trailsData={trailsData} setShowList={setShowList} />

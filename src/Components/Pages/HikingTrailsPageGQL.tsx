@@ -1,6 +1,6 @@
 import { getAllTrails } from '../Utils/FetchTrails'
 import { useEffect, useState } from 'react'
-import { SquareButton } from '../Utils/Button'
+import { PreviousButton, SquareButton } from '../Utils/Button'
 import { Link } from 'react-router-dom'
 import LeftArrowIcon from '../../svg/LeftArrowIcon'
 import TrailsFilter from '../Utils/TrailsFilter'
@@ -28,15 +28,7 @@ const HikingTrailsPageGQL = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="flex m-5 justify-start">
-          <SquareButton>
-            <Link to="/">
-              <div className="p-2.5">
-                <LeftArrowIcon />
-              </div>
-            </Link>
-          </SquareButton>
-        </div>
+        <PreviousButton />
 
         {/* Filter section */}
         <TrailsFilter

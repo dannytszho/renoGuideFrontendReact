@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { HashRouter } from 'react-router-dom'
-import HomePage from '../HomePage'
+import HomePage from '../Pages/HomePage'
 
 describe('render Homepage', () => {
   it('contains the string "Reno & Lake Tahoe"', () => {
