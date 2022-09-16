@@ -21,12 +21,6 @@ const NavBar = () => {
             <div>
               <button
                 className="w-[68px] h-[30px] ml-4 border rounded-lg font-semibold bg-zinc-200 hover:cursor-pointer hover:scale-[103%]"
-                onClick={() => navigate('/')}
-              >
-                Home
-              </button>
-              <button
-                className="w-[68px] h-[30px] ml-4 border rounded-lg font-semibold bg-zinc-200 hover:cursor-pointer hover:scale-[103%]"
                 onClick={() => navigate('/login')}
               >
                 Log In
