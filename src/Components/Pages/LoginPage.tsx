@@ -1,5 +1,7 @@
 import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
+import { Auth } from 'aws-amplify'
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth'
 import { useEffect, useMemo } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { PreviousButton } from '../Utils/Button'
@@ -27,7 +29,7 @@ const LoginPage = () => {
     <>
       <PreviousButton />
       <div className="auth-wrapper mt-28">
-        <Authenticator></Authenticator>
+        <Authenticator socialProviders={['google']}></Authenticator>
       </div>
     </>
   )
