@@ -6,7 +6,9 @@ const NavBar = () => {
   const { route, signOut, user } = useAuthenticator(context => [
     context.route,
     context.signOut,
+    context.user,
   ])
+  console.log(user)
   const navigate = useNavigate()
 
   const logOut = () => {

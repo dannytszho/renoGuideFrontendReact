@@ -8,7 +8,7 @@ import CoffeeIcon from '../../svg/CoffeeIcon'
 import Footer from '../Utils/Footer'
 import RestaurantCard from '../Utils/RestaurantCard'
 import RestaurantData from '../../data/RestaurantData'
-import { Auth } from 'aws-amplify'
+import { Auth } from '@aws-amplify/auth'
 
 const HomePage = () => {
   async function checkUser() {
@@ -19,7 +19,6 @@ const HomePage = () => {
     <>
       {/* Hero Section */}
       <div className="flex flex-col">
-        <button onClick={checkUser}>checkUser</button>
         <div className="flex justify-center mt-20">
           <img src={Nevada} alt="navada" />
         </div>

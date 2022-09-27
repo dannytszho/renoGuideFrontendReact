@@ -8,31 +8,36 @@ import NavBar from './Components/Utils/NavBar'
 import HikingTrailsPageGQL from './Components/Pages/HikingTrailsPageGQL'
 import LoginPage from './Components/Pages/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
-import { Auth } from 'aws-amplify'
+
+function MyRoutes() {
+  return (
+    <>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<NavBar />}>
+            <Route index element={<HomePage />} />
+            <Route path="/hikingtrails" element={<HikingTrailsPage />} />
+            <Route
+              path="/hikingtrailsgql"
+              element={
+                <RequiredAuth>
+                  <HikingTrailsPageGQL />
+                </RequiredAuth>
+              }
+            />
+            <Route path="/login" element={<LoginPage />} />
+          </Route>
+        </Routes>
+      </HashRouter>
+    </>
+  )
+}
 
 function App() {
   return (
-    <>
-      <Authenticator.Provider>
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<NavBar />}>
-              <Route index element={<HomePage />} />
-              <Route path="/hikingtrails" element={<HikingTrailsPage />} />
-              <Route
-                path="/hikingtrailsgql"
-                element={
-                  <RequiredAuth>
-                    <HikingTrailsPageGQL />
-                  </RequiredAuth>
-                }
-              />
-              <Route path="/login" element={<LoginPage />} />
-            </Route>
-          </Routes>
-        </HashRouter>
-      </Authenticator.Provider>
-    </>
+    <Authenticator.Provider>
+      <MyRoutes />
+    </Authenticator.Provider>
   )
 }
 

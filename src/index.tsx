@@ -4,16 +4,17 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Amplify } from 'aws-amplify'
+import { Authenticator } from '@aws-amplify/ui-react'
 
 Amplify.configure({
   Auth: {
-    identityPoolId: process.env.AWS_IDENTITY_POOL_ID,
-    region: process.env.AWS_REGION,
-    userPoolId: process.env.AWS_USER_POOL_ID,
-    userPoolWebClientId: process.env.AWS_USER_POOL_WEBCLIENT_ID,
+    identityPoolId: 'us-east-1:66cb9424-f5ab-49cc-beee-cc28ffe5a296',
+    region: 'us-east-1',
+    userPoolId: 'us-east-1_SX3VazAiM',
+    userPoolWebClientId: '2caidilhb8lbvfhdqis93v4mpg',
     mandatorySignIn: true,
     oauth: {
-      domain: process.env.AWS_OAUTH_DOMAIN,
+      domain: 'omybuddha.auth.us-east-1.amazoncognito.com',
       scope: ['openid', 'email', 'profile'],
       redirectSignIn: 'http://localhost:3000/',
       redirectSignOut: 'http://localhost:3000/',
