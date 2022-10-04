@@ -36,7 +36,7 @@ const HikingTrailsPageGQL = () => {
         />
         <div className="grid justify-center m-8">
           <button className="border w-10 h-10 rounded-full">
-            <Link to="/createTrail">+</Link>
+            <Link to="/createtrail">+</Link>
           </button>
         </div>
 
