@@ -33,6 +33,10 @@ const HikingTrailsPageGQL = () => {
           trailsData={trailsData.data?.getAllTrails}
           setShowList={setShowList}
         />
+        <div className="grid justify-center m-8">
+          <button className="border w-10 h-10 rounded-full">+</button>
+        </div>
+
         <div>
           {isLoading ? <Loader variation="linear" fr={undefined} /> : null}
         </div>
