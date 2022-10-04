@@ -7,6 +7,7 @@ import Rating from '../Utils/Rating'
 import { TrailsType } from './HikingTrailsPage'
 import { Loader } from '@aws-amplify/ui-react'
 import Footer from '../Utils/Footer'
+import { Link } from 'react-router-dom'
 
 const HikingTrailsPageGQL = () => {
   const [trailsData, setTrailsData] = useState<any>([])
@@ -34,7 +35,9 @@ const HikingTrailsPageGQL = () => {
           setShowList={setShowList}
         />
         <div className="grid justify-center m-8">
-          <button className="border w-10 h-10 rounded-full">+</button>
+          <button className="border w-10 h-10 rounded-full">
+            <Link to="/createTrail">+</Link>
+          </button>
         </div>
 
         <div>

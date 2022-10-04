@@ -9,6 +9,7 @@ import HikingTrailsPageGQL from './Components/Pages/HikingTrailsPageGQL'
 import LoginPage from './Components/Pages/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
 import { Auth } from 'aws-amplify'
+import CreateTrailPage from './Components/Pages/CreateTrailPage'
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
                 element={
                   <RequiredAuth>
                     <HikingTrailsPageGQL />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/createTrail"
+                element={
+                  <RequiredAuth>
+                    <CreateTrailPage />
                   </RequiredAuth>
                 }
               />
