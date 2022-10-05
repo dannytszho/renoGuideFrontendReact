@@ -13,3 +13,14 @@ query {
   }
 }
 `
+export const CREATE_TRAIL = `
+mutation createTrail($input: TrailCreateInput) {
+  createTrail(input: $input) {
+    name
+    rating
+    duration
+    difficulty
+    length
+    elevation
+  }
+}`

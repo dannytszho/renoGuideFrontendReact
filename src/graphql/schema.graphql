@@ -1,0 +1,26 @@
+type Trail {
+  primary_key: String
+  name: String
+  length: String
+  elevation: String
+  duration: String
+  difficulty: String
+  rating: String
+  url: String
+  imageUrl: String
+  createdAt: String
+  updatedAt: String
+}
+
+input TrailCreateInput {
+  primary_key: String
+  name: String
+  length: String
+  elevation: String
+  duration: String
+  difficulty: String
+  rating: String
+  url: String
+  imageUrl: String
+  createdAt: String
+}
