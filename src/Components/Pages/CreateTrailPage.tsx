@@ -1,7 +1,9 @@
 import { API } from 'aws-amplify'
 import { CREATE_TRAIL } from '../../graphql/trails'
+import { useNavigate } from 'react-router-dom'
 
 const CreateTrailPage = () => {
+  const navigate = useNavigate()
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     try {
@@ -23,6 +25,7 @@ const CreateTrailPage = () => {
     } catch (err) {
       console.log(err)
     }
+    navigate('/hikingtrailsgql')
   }
 
   return (
