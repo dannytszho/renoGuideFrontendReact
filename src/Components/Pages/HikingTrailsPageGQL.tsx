@@ -93,6 +93,7 @@ const HikingTrailsPageGQL = () => {
         <Pagination
           trailsPerPage={trailsPerPage}
           totalTrails={trailsData.data?.getAllTrails.length}
+          currentPage={currentPage}
           paginate={paginate}
         />
       </div>
