@@ -10,6 +10,7 @@ import LoginPage from './Components/Pages/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
 import { Auth } from 'aws-amplify'
 import CreateTrailPage from './Components/Pages/CreateTrailPage'
+import MyTrailPage from './Components/Pages/MyTrailPage'
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
                 element={
                   <RequiredAuth>
                     <CreateTrailPage />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/my-trail"
+                element={
+                  <RequiredAuth>
+                    <MyTrailPage />
                   </RequiredAuth>
                 }
               />

@@ -1,5 +1,5 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import UserIcon from '../../svg/UserIcon'
 import MyTrailPage from '../Pages/MyTrailPage'
 
@@ -36,9 +36,12 @@ const NavBar = () => {
             <div>
               <button className="peer">{user.attributes?.email}</button>
               <div className="hidden peer-hover:flex hover:flex w-42 bg-white rounded-md">
-                <a className="hover:bg-gray-300 hover:cursor-pointer w-full hover:rounded-md p-2">
+                <Link
+                  to="/my-trail"
+                  className="hover:bg-gray-300 hover:cursor-pointer w-full hover:rounded-md p-2"
+                >
                   My trails
-                </a>
+                </Link>
               </div>
             </div>
             <button
