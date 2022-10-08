@@ -6,6 +6,7 @@ import TrailsCard from '../Utils/TrailsCard'
 import Rating from '../Utils/Rating'
 import { TrailsType } from './HikingTrailsPage'
 import { Loader } from '@aws-amplify/ui-react'
+import Pagination from '../Utils/Pagination'
 import Footer from '../Utils/Footer'
 import { Link } from 'react-router-dom'
 
@@ -14,7 +15,7 @@ const HikingTrailsPageGQL = () => {
   const [showList, setShowList] = useState<any>([])
   const [isLoading, setIsLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
-  const [trailsPerPage] = useState(10)
+  const [trailsPerPage] = useState(5)
 
   useEffect(() => {
     getAllTrails()
@@ -25,10 +26,6 @@ const HikingTrailsPageGQL = () => {
       })
       .catch(err => alert(err))
   }, [])
-  console.log('*********')
-  console.log(trailsData)
-  console.log('*********')
-  console.log(showList)
 
   // Get current trails
   const indexOfLastTrail = currentPage * trailsPerPage
@@ -37,13 +34,11 @@ const HikingTrailsPageGQL = () => {
     indexOfFirstTrail,
     indexOfLastTrail,
   )
-  console.log('1111111')
-  console.log(indexOfLastTrail)
-  console.log('2222222')
-  console.log(indexOfFirstTrail)
-  console.log('3333333')
-  console.log(currentTrails)
-  console.log('4444444')
+
+  // Change Page
+  const paginate = (PageNumbers: number) => {
+    setCurrentPage(PageNumbers)
+  }
 
   return (
     <>
@@ -94,6 +89,11 @@ const HikingTrailsPageGQL = () => {
                 />
               ))}
         </div>
+        <Pagination
+          trailsPerPage={trailsPerPage}
+          totalTrails={trailsData.data?.getAllTrails.length}
+          paginate={paginate}
+        />
       </div>
       <br />
       <Footer />
