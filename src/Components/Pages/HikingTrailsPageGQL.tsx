@@ -38,6 +38,7 @@ const HikingTrailsPageGQL = () => {
   // Change Page
   const paginate = (PageNumbers: number) => {
     setCurrentPage(PageNumbers)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
