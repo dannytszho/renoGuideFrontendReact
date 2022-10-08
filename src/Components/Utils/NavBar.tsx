@@ -1,6 +1,7 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import UserIcon from '../../svg/UserIcon'
+import MyTrailPage from '../Pages/MyTrailPage'
 
 const NavBar = () => {
   const { route, signOut, user } = useAuthenticator(context => [
@@ -32,7 +33,14 @@ const NavBar = () => {
             <div className="mt-0.5 mr-1">
               <UserIcon />
             </div>
-            <h1>{user.attributes?.email}</h1>
+            <div>
+              <button className="peer">{user.attributes?.email}</button>
+              <div className="hidden peer-hover:flex hover:flex w-42 bg-white rounded-md">
+                <a className="hover:bg-gray-300 hover:cursor-pointer w-full hover:rounded-md p-2">
+                  My trails
+                </a>
+              </div>
+            </div>
             <button
               className="w-[68px] h-[30px] ml-4 border rounded-lg font-semibold bg-zinc-200 hover:cursor-pointer hover:scale-[103%]"
               onClick={() => logOut()}

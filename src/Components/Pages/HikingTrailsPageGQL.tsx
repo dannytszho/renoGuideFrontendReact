@@ -25,6 +25,7 @@ const HikingTrailsPageGQL = () => {
         setIsLoading(false)
       })
       .catch(err => alert(err))
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
   // Get current trails
