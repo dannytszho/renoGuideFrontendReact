@@ -13,6 +13,8 @@ const HikingTrailsPageGQL = () => {
   const [trailsData, setTrailsData] = useState<any>([])
   const [showList, setShowList] = useState<any>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [trailsPerPage] = useState(10)
 
   useEffect(() => {
     getAllTrails()
@@ -23,6 +25,25 @@ const HikingTrailsPageGQL = () => {
       })
       .catch(err => alert(err))
   }, [])
+  console.log('*********')
+  console.log(trailsData)
+  console.log('*********')
+  console.log(showList)
+
+  // Get current trails
+  const indexOfLastTrail = currentPage * trailsPerPage
+  const indexOfFirstTrail = indexOfLastTrail - trailsPerPage
+  const currentTrails = showList.data?.getAllTrails.slice(
+    indexOfFirstTrail,
+    indexOfLastTrail,
+  )
+  console.log('1111111')
+  console.log(indexOfLastTrail)
+  console.log('2222222')
+  console.log(indexOfFirstTrail)
+  console.log('3333333')
+  console.log(currentTrails)
+  console.log('4444444')
 
   return (
     <>
@@ -45,8 +66,8 @@ const HikingTrailsPageGQL = () => {
         </div>
 
         <div className="grid justify-center">
-          {showList.data?.getAllTrails
-            ? showList.data?.getAllTrails.map((trail: TrailsType) => (
+          {currentTrails
+            ? currentTrails.map((trail: TrailsType) => (
                 <TrailsCard
                   key={trail.primary_key}
                   name={trail.name}

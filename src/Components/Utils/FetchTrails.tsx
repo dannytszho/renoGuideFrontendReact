@@ -14,6 +14,7 @@ export const getData = async () => {
 export const getAllTrails = async () => {
   try {
     const res = await API.graphql(graphqlOperation(GET_ALL_TRAILS))
+    console.log(res)
     return res
   } catch (e) {
     throw e

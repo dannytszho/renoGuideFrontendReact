@@ -1,6 +1,6 @@
 export const GET_ALL_TRAILS = `
 query {
-  getAllTrails(limit: 3) {
+  getAllTrails(limit: 100) {
     primary_key
     name
     rating
