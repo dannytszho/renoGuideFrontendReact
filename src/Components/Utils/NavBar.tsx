@@ -1,10 +1,8 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
 import { CognitoUserSession } from 'amazon-cognito-identity-js'
-import { Auth } from 'aws-amplify'
 import { useEffect, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import UserIcon from '../../svg/UserIcon'
-import { Buffer } from 'buffer'
 import { getJwtToken, verifyToken } from './Tokens'
 
 const NavBar = () => {
@@ -16,6 +14,7 @@ const NavBar = () => {
   const [info, setInfo] = useState<any>()
 
   const token = session?.getIdToken().getJwtToken()
+  const to = session?.getAccessToken().getJwtToken()
 
   useEffect(() => {
     getJwtToken().then((ses: CognitoUserSession) => {
@@ -26,6 +25,9 @@ const NavBar = () => {
     })
     return () => {}
   }, [token])
+  console.log(token)
+  console.log(info)
+  console.log(to)
 
   const navigate = useNavigate()
 
@@ -55,7 +57,7 @@ const NavBar = () => {
             <div>
               <button className="peer">
                 {/* {session?.getIdToken().payload.email} */}
-                {info?.name}
+                {info?.given_name}
               </button>
               <div className="hidden peer-hover:flex hover:flex w-42 bg-white rounded-md">
                 <Link

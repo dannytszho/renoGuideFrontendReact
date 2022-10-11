@@ -1,6 +1,7 @@
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 
 const Rating = ({ rating }: { rating: number }) => {
+  console.log(rating)
   return (
     <div>
       <span className="flex">
@@ -9,11 +10,13 @@ const Rating = ({ rating }: { rating: number }) => {
             <FaStar color={'#ffc107'} />
           </div>
         ))}
-        {rating - Math.floor(rating) && (
-          <div>
-            <FaStarHalfAlt color={'#ffc107'} />
-          </div>
-        )}
+        {rating - Math.floor(rating)
+          ? rating - Math.floor(rating) && (
+              <div>
+                <FaStarHalfAlt color={'#ffc107'} />
+              </div>
+            )
+          : null}
         {[...Array(5 - Math.ceil(rating))].map((key, i) => (
           <div key={i}>
             <FaStar color={'#e4e5e9'} />
