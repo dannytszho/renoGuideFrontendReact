@@ -1,13 +1,32 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
+import { CognitoUserSession } from 'amazon-cognito-identity-js'
+import { Auth } from 'aws-amplify'
+import { useEffect, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import UserIcon from '../../svg/UserIcon'
-import MyTrailPage from '../Pages/MyTrailPage'
+import { Buffer } from 'buffer'
+import { getJwtToken, verifyToken } from './Tokens'
 
 const NavBar = () => {
-  const { route, signOut, user } = useAuthenticator(context => [
+  const { route, signOut } = useAuthenticator(context => [
     context.route,
     context.signOut,
   ])
+  const [session, setSession] = useState<any>()
+  const [info, setInfo] = useState<any>()
+
+  const token = session?.getIdToken().getJwtToken()
+
+  useEffect(() => {
+    getJwtToken().then((ses: CognitoUserSession) => {
+      setSession(ses)
+    })
+    verifyToken(token).then((tok: CognitoUserSession) => {
+      setInfo(tok)
+    })
+    return () => {}
+  }, [token])
+
   const navigate = useNavigate()
 
   const logOut = () => {
@@ -34,7 +53,10 @@ const NavBar = () => {
               <UserIcon />
             </div>
             <div>
-              <button className="peer">{user.attributes?.email}</button>
+              <button className="peer">
+                {/* {session?.getIdToken().payload.email} */}
+                {info?.name}
+              </button>
               <div className="hidden peer-hover:flex hover:flex w-42 bg-white rounded-md">
                 <Link
                   to="/my-trail"

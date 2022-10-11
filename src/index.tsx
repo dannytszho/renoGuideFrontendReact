@@ -7,20 +7,21 @@ import { Amplify } from 'aws-amplify'
 
 Amplify.configure({
   Auth: {
-    identityPoolId: 'us-east-1:66cb9424-f5ab-49cc-beee-cc28ffe5a296',
+    identityPoolId: 'us-east-1:c0638819-a59d-4490-93a7-1f50db4c55a5',
     region: 'us-east-1',
     userPoolId: 'us-east-1_SX3VazAiM',
-    userPoolWebClientId: '2caidilhb8lbvfhdqis93v4mpg',
+    userPoolWebClientId: '5otpiip5vllqochdbbff1hk0fm',
     mandatorySignIn: true,
     oauth: {
-      domain: 'omybuddha',
+      domain: 'omybuddha.auth.us-east-1.amazoncognito.com',
       scope: ['openid', 'email', 'profile'],
       redirectSignIn: 'http://localhost:3000/',
       redirectSignOut: 'http://localhost:3000/',
-      responseType: 'token',
+      responseType: 'code',
     },
   },
 })
+
 let myAppConfig = {
   aws_appsync_graphqlEndpoint:
     'https://xqzcqaxy2fbdxn66hummpfo3o4.appsync-api.us-east-1.amazonaws.com/graphql',

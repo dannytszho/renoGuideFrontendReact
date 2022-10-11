@@ -8,7 +8,6 @@ import NavBar from './Components/Utils/NavBar'
 import HikingTrailsPageGQL from './Components/Pages/HikingTrailsPageGQL'
 import LoginPage from './Components/Pages/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
-import { Auth } from 'aws-amplify'
 import CreateTrailPage from './Components/Pages/CreateTrailPage'
 import MyTrailPage from './Components/Pages/MyTrailPage'
 
