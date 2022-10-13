@@ -2,6 +2,7 @@ import { ReactElement, useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 
 export interface CardProps {
+  primary_key: string
   name: string
   length: string
   elevation: string
@@ -21,6 +22,7 @@ export const colorMap = {
 }
 
 const TrailsCard = ({
+  primary_key,
   image,
   name,
   difficulty,
@@ -35,6 +37,7 @@ const TrailsCard = ({
   const [deleteModal, setDeleteModal] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   console.log(userId)
+  console.log(primary_key)
 
   return (
     <div>

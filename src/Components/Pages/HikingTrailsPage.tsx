@@ -44,33 +44,21 @@ const HikingTrailsPage = () => {
         <TrailsFilter trailsData={trailsData} setShowList={setShowList} />
 
         <div className="grid justify-center">
-          {showList.map(
-            (trail: {
-              id: Key | null | undefined
-              name: string
-              length: string
-              elevation: string
-              imageUrl: string
-              difficulty: 'Easy' | 'Moderate' | 'Hard'
-              rating: string
-              duration: string
-              url: string
-              userId: string
-            }) => (
-              <TrailsCard
-                key={trail.id}
-                name={trail.name}
-                length={trail.length}
-                elevation={trail.elevation}
-                image={trail.imageUrl}
-                difficulty={trail.difficulty}
-                rating={<Rating rating={parseFloat(trail.rating)} />}
-                duration={trail.duration}
-                urL={trail.url}
-                userId={trail.userId}
-              />
-            ),
-          )}
+          {showList.map((trail: TrailsType) => (
+            <TrailsCard
+              key={trail.id}
+              primary_key={trail.primary_key}
+              name={trail.name}
+              length={trail.length}
+              elevation={trail.elevation}
+              image={trail.imageUrl}
+              difficulty={trail.difficulty}
+              rating={<Rating rating={parseFloat(trail.rating)} />}
+              duration={trail.duration}
+              urL={trail.url}
+              userId={trail.userId}
+            />
+          ))}
         </div>
       </div>
       <br />

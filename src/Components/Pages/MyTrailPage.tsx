@@ -18,6 +18,7 @@ const MyTrailPage = () => {
       {userTrails.data?.getUserTrails.map((trail: TrailsType) => (
         <TrailsCard
           key={trail.primary_key}
+          primary_key={trail.primary_key}
           name={trail.name}
           length={trail.length}
           elevation={trail.elevation}
