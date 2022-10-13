@@ -1,4 +1,4 @@
-import { API } from 'aws-amplify'
+import { API, Auth } from 'aws-amplify'
 import { CREATE_TRAIL } from '../../graphql/trails'
 import { useNavigate } from 'react-router-dom'
 import { PreviousButton } from '../Utils/Button'
@@ -8,6 +8,10 @@ const CreateTrailPage = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     try {
+      const authToken = `Bearer ${(await Auth.currentSession())
+        .getIdToken()
+        .getJwtToken()}`
+      console.log(authToken)
       const res = await API.graphql({
         query: CREATE_TRAIL,
         variables: {
@@ -21,7 +25,9 @@ const CreateTrailPage = () => {
             // imageUrl: e.target.trailImageUrl.value,
           },
         },
+        authToken,
       })
+      console.log(res)
     } catch (err) {
       throw err
     }

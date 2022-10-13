@@ -14,7 +14,6 @@ const NavBar = () => {
   const [info, setInfo] = useState<any>()
 
   const token = session?.getIdToken().getJwtToken()
-  const to = session?.getAccessToken().getJwtToken()
 
   useEffect(() => {
     getJwtToken().then((ses: CognitoUserSession) => {
@@ -25,9 +24,6 @@ const NavBar = () => {
     })
     return () => {}
   }, [token])
-  console.log(token)
-  console.log(info)
-  console.log(to)
 
   const navigate = useNavigate()
 

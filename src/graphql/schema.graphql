@@ -10,6 +10,7 @@ type Trail {
   imageUrl: String
   createdAt: String
   updatedAt: String
+  userId: String
 }
 
 input TrailCreateInput {
@@ -23,4 +24,5 @@ input TrailCreateInput {
   url: String
   imageUrl: String
   createdAt: String
+  userId: String
 }

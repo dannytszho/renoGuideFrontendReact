@@ -1,7 +1,6 @@
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 
 const Rating = ({ rating }: { rating: number }) => {
-  console.log(rating)
   return (
     <div>
       <span className="flex">
