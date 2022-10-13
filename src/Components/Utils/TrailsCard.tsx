@@ -1,6 +1,5 @@
 import { ReactElement, useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-import Modal from 'react-modal'
 
 export interface CardProps {
   name: string
@@ -31,6 +30,7 @@ const TrailsCard = ({
   urL,
 }: CardProps) => {
   const [showModal, setShowModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
 
   return (
     <div>
@@ -71,7 +71,7 @@ const TrailsCard = ({
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Modal Title</h3>
+                  <h3 className="text-3xl font-semibold">{name}</h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
@@ -83,9 +83,21 @@ const TrailsCard = ({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    contents
-                  </p>
+                  <ul className="my-1 text-slate-500 text-lg leading-relaxed">
+                    <li>
+                      <img
+                        src={image}
+                        alt="placeholder"
+                        width="300px"
+                        height="168px"
+                      />
+                    </li>
+
+                    <li>{length}</li>
+                    <li>{elevation}</li>
+                    <li>{duration}</li>
+                    <li>{rating}</li>
+                  </ul>
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -97,12 +109,42 @@ const TrailsCard = ({
                     Close
                   </button>
                   <button
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-red-400 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={() => {
+                      console.log('me first')
+                      setDeleteModal(true)
+                    }}
                   >
-                    Save Changes
+                    Delete Trail
                   </button>
+                  {deleteModal ? (
+                    <>
+                      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                        <div className="relative w-40 my-6 mx-auto max-w-3xl">
+                          <div className="border-2 rounded-lg">
+                            <h1 className="text-center">
+                              Are you sure to delete?
+                            </h1>
+                            <div className="flex justify-evenly">
+                              <button
+                                className="bg-blue-600 w-12 m-2 rounded-md"
+                                onClick={() => console.log('Deleted!')}
+                              >
+                                Yes
+                              </button>
+                              <button
+                                className="bg-red-600 w-12 m-2 rounded-md"
+                                onClick={() => setDeleteModal(false)}
+                              >
+                                No
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : null}
                 </div>
               </div>
             </div>
