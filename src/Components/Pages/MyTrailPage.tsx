@@ -26,6 +26,7 @@ const MyTrailPage = () => {
           rating={<Rating rating={parseFloat(trail.rating)} />}
           duration={trail.duration}
           urL={trail.url}
+          userId={trail.userId}
         />
       ))}
     </div>

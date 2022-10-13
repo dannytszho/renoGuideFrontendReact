@@ -10,6 +10,7 @@ export interface CardProps {
   image: string
   urL: string
   difficulty: 'Easy' | 'Moderate' | 'Hard'
+  userId: string
 }
 
 export const colorMap = {
@@ -28,9 +29,12 @@ const TrailsCard = ({
   duration,
   rating,
   urL,
+  userId,
 }: CardProps) => {
   const [showModal, setShowModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  console.log(userId)
 
   return (
     <div>
@@ -108,16 +112,21 @@ const TrailsCard = ({
                   >
                     Close
                   </button>
-                  <button
-                    className="bg-red-400 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => {
-                      console.log('me first')
-                      setDeleteModal(true)
-                    }}
-                  >
-                    Delete Trail
-                  </button>
+                  {userId ? (
+                    <>
+                      <button
+                        className="bg-red-400 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                        onClick={() => {
+                          console.log('me first')
+                          setDeleteModal(true)
+                        }}
+                      >
+                        Delete Trail
+                      </button>
+                    </>
+                  ) : null}
+
                   {deleteModal ? (
                     <>
                       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
