@@ -1,6 +1,6 @@
 export const GET_ALL_TRAILS = `
 query {
-  getAllTrails(limit: 100) {
+  getAllTrails(limit: 20) {
     primary_key
     name
     rating
@@ -10,6 +10,22 @@ query {
     length
     elevation
     imageUrl
+  }
+}
+`
+export const GET_USER_TRAILS = `
+query {
+  getUserTrails(limit: 20) {
+    primary_key
+    name
+    rating
+    url
+    duration
+    difficulty
+    length
+    elevation
+    imageUrl
+    userId
   }
 }
 `
