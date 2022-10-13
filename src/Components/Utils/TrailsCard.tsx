@@ -1,5 +1,7 @@
 import { ReactElement, useState } from 'react'
+
 import { AiOutlineClockCircle } from 'react-icons/ai'
+import { deleteTrail } from './FetchTrails'
 
 export interface CardProps {
   primary_key: string
@@ -35,14 +37,16 @@ const TrailsCard = ({
 }: CardProps) => {
   const [showModal, setShowModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  console.log(userId)
-  console.log(primary_key)
+  const [selectedTrailId, setSelectedTrailId] = useState('')
+  console.log(selectedTrailId)
 
   return (
     <div>
       <button
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          setShowModal(true)
+          setSelectedTrailId(primary_key)
+        }}
         className="bg-white font-iceland text-black m-10 rounded-xl overflow-hidden shadow-lg w-[300px] hover:scale-105 hover:tansition hover:duration-200"
       >
         {/* <a href={urL} target="_blank" rel="noreferrer"> */}
@@ -141,7 +145,12 @@ const TrailsCard = ({
                             <div className="flex justify-evenly">
                               <button
                                 className="bg-blue-600 w-12 m-2 rounded-md"
-                                onClick={() => console.log('Deleted!')}
+                                onClick={() => {
+                                  console.log('Deleted!')
+                                  deleteTrail(selectedTrailId)
+                                  setDeleteModal(false)
+                                  setShowModal(false)
+                                }}
                               >
                                 Yes
                               </button>

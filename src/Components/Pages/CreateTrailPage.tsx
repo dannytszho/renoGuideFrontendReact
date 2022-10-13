@@ -11,7 +11,6 @@ const CreateTrailPage = () => {
       const authToken = `Bearer ${(await Auth.currentSession())
         .getIdToken()
         .getJwtToken()}`
-      console.log(authToken)
       const res = await API.graphql({
         query: CREATE_TRAIL,
         variables: {
@@ -27,7 +26,6 @@ const CreateTrailPage = () => {
         },
         authToken,
       })
-      console.log(res)
     } catch (err) {
       throw err
     }
@@ -50,11 +48,6 @@ const CreateTrailPage = () => {
               <option>Moderate</option>
               <option>Hard</option>
             </select>
-            {/* <input
-          className="w-20"
-          placeholder="difficulty"
-          name="trailDifficulty"
-        ></input> */}
             <input
               className="w-20"
               placeholder="length(mi)"
