@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { getUserTrails } from '../Utils/FetchTrails'
 import Rating from '../Utils/Rating'
 import TrailsCard from '../Utils/TrailsCard'
+import useMyTrail from '../Utils/useMyTrail'
 import { TrailsType } from './HikingTrailsPage'
 
 const MyTrailPage = () => {
@@ -13,6 +14,11 @@ const MyTrailPage = () => {
       setUserTrails(data)
     })
   }, [])
+  // const [userTrails, setUserTrails] = useState<any>([])
+  // const { userTrailsData } = useMyTrail(userTrails)
+  // console.log(userTrails)
+  // console.log('11111111')
+  // console.log(userTrailsData)
 
   return (
     <div>

@@ -40,9 +40,3 @@ mutation createTrail($input: TrailCreateInput) {
     elevation
   }
 }`
-
-export const DELETE_TRAIL = `
-mutation {
-  deleteTrail(id: String!)
-}
-`

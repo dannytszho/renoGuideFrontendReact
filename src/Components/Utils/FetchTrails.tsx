@@ -1,9 +1,5 @@
 import { API, graphqlOperation } from 'aws-amplify'
-import {
-  DELETE_TRAIL,
-  GET_ALL_TRAILS,
-  GET_USER_TRAILS,
-} from '../../graphql/trails'
+import { GET_ALL_TRAILS, GET_USER_TRAILS } from '../../graphql/trails'
 
 export const getData = async () => {
   try {

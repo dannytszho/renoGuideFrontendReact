@@ -1,5 +1,4 @@
 import { ReactElement, useState } from 'react'
-
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { deleteTrail } from './FetchTrails'
 
