@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { deleteTrail } from './FetchTrails'
 
-export interface CardProps {
+export interface userCardProps {
   primary_key: string
   name: string
   length: string
@@ -13,6 +13,7 @@ export interface CardProps {
   urL: string
   difficulty: 'Easy' | 'Moderate' | 'Hard'
   userId: string
+  setUpdateUserTrails: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const colorMap = {
@@ -22,7 +23,7 @@ export const colorMap = {
   All: 'bg-gray-200',
 }
 
-const TrailsCard = ({
+const UserTrailsCard = ({
   primary_key,
   image,
   name,
@@ -33,7 +34,8 @@ const TrailsCard = ({
   rating,
   urL,
   userId,
-}: CardProps) => {
+  setUpdateUserTrails,
+}: userCardProps) => {
   const [showModal, setShowModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
   const [selectedTrailId, setSelectedTrailId] = useState('')
@@ -147,6 +149,7 @@ const TrailsCard = ({
                                   await deleteTrail(selectedTrailId)
                                   setDeleteModal(false)
                                   setShowModal(false)
+                                  setUpdateUserTrails(true)
                                 }}
                               >
                                 Yes
@@ -174,4 +177,4 @@ const TrailsCard = ({
   )
 }
 
-export default TrailsCard
+export default UserTrailsCard

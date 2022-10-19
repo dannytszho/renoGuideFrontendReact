@@ -16,7 +16,6 @@ const HikingTrailsPageGQL = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [trailsPerPage] = useState(5)
-
   useEffect(() => {
     getAllTrails()
       .then(data => {
