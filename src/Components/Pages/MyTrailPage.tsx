@@ -21,7 +21,7 @@ const MyTrailPage = () => {
   // console.log(userTrailsData)
 
   return (
-    <div>
+    <div className="grid justify-center">
       {userTrails.data?.getUserTrails.length <= 0
         ? 'You dont have any Trails yet!'
         : userTrails.data?.getUserTrails.map((trail: TrailsType) => (

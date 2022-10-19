@@ -1,9 +1,35 @@
-import { API, Auth } from 'aws-amplify'
+import { API, Auth, Storage } from 'aws-amplify'
 import { CREATE_TRAIL } from '../../graphql/trails'
 import { useNavigate } from 'react-router-dom'
 import { PreviousButton } from '../Utils/Button'
+import { useState } from 'react'
+
+const AWS_S3_IMAGE_BUCKET = 'aws-trails-trailsimagebucket'
 
 const CreateTrailPage = () => {
+  const [file, setFile] = useState('')
+  const [hostUrl, setHostUrl] = useState('')
+
+  const handleUploadImage = async (event: any) => {
+    const file = event.target.files[0]
+    const fileKey = event.target.files[0].name
+
+    const hostUrl = `https://${AWS_S3_IMAGE_BUCKET}.s3.amazonaws.com/public/${fileKey}`
+
+    try {
+      await Storage.put(file.name, file, {
+        contentType: 'image/png',
+      }).then(result => {
+        console.log(result)
+        setFile(URL.createObjectURL(file))
+        setHostUrl(hostUrl)
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  console.log(hostUrl)
+
   const navigate = useNavigate()
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -21,7 +47,7 @@ const CreateTrailPage = () => {
             difficulty: e.target.trailDifficulty.value,
             length: e.target.trailLength.value,
             elevation: e.target.trailElevation.value,
-            // imageUrl: e.target.trailImageUrl.value,
+            imageUrl: hostUrl,
           },
         },
         authToken,
@@ -41,7 +67,14 @@ const CreateTrailPage = () => {
           onSubmit={handleSubmit}
           className="bg-white font-iceland text-black m-10 rounded-xl overflow-hidden shadow-lg w-[300px] text-center hover:tansition hover:duration-200"
         >
-          <img alt="placeholder" width="300px" height="168px" />
+          <input
+            type="file"
+            onChange={e => {
+              console.log('upload')
+              handleUploadImage(e)
+            }}
+          />
+          <img src={file} alt="placeholder" width="300px" height="168px" />
           <div className="flex justify-between mx-3 mt-2">
             <select name="trailDifficulty" className="w-30">
               <option>Easy</option>

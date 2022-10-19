@@ -46,9 +46,8 @@ const TrailsCard = ({
           setShowModal(true)
           setSelectedTrailId(primary_key)
         }}
-        className="bg-white font-iceland text-black m-10 rounded-xl overflow-hidden shadow-lg w-[300px] hover:scale-105 hover:tansition hover:duration-200"
+        className="bg-white font-iceland text-black m-10 rounded-xl overflow-hidden shadow-lg w-[300px] h-[300px] hover:scale-105 hover:tansition hover:duration-200"
       >
-        {/* <a href={urL} target="_blank" rel="noreferrer"> */}
         <img src={image} alt="placeholder" width="300px" height="168px" />
         <div className="flex justify-between mx-3 mt-2">
           <span
@@ -137,7 +136,7 @@ const TrailsCard = ({
                     <>
                       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                         <div className="relative w-40 my-6 mx-auto max-w-3xl">
-                          <div className="border-2 rounded-lg">
+                          <div className="border-2 rounded-lg bg-white">
                             <h1 className="text-center">
                               Are you sure to delete?
                             </h1>
