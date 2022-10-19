@@ -1,26 +1,11 @@
 import TrailsCard from '../Utils/TrailsCard'
-import { Key, useEffect, useState } from 'react'
-import { PreviousButton, SquareButton } from '../Utils/Button'
+import { useEffect, useState } from 'react'
+import { PreviousButton } from '../Utils/Button'
 import Footer from '../Utils/Footer'
 import Rating from '../Utils/Rating'
-import { Link } from 'react-router-dom'
-import LeftArrowIcon from '../../svg/LeftArrowIcon'
 import TrailsFilter from '../Utils/TrailsFilter'
 import { getData } from '../Utils/FetchTrails'
-
-export interface TrailsType {
-  primary_key: string
-  id: string
-  name: string
-  length: string
-  elevation: string
-  duration: string
-  difficulty: 'Easy' | 'Moderate' | 'Hard'
-  rating: string
-  imageUrl: string
-  url: string
-  userId: string
-}
+import { TrailsType } from '../Utils/types'
 
 export const trailsAPI_URL = 'https://powerfulmountain.herokuapp.com/api/trails'
 

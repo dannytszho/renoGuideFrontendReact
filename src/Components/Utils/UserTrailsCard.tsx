@@ -1,20 +1,7 @@
-import { ReactElement, useState } from 'react'
+import { useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { deleteTrail } from './FetchTrails'
-
-export interface UserCardProps {
-  primary_key: string
-  name: string
-  length: string
-  elevation: string
-  duration: string
-  rating: ReactElement
-  image: string
-  urL: string
-  difficulty: 'Easy' | 'Moderate' | 'Hard'
-  userId: string
-  setUpdateUserTrails: React.Dispatch<React.SetStateAction<boolean>>
-}
+import { UserCardProps } from '../Utils/types'
 
 export const colorMap = {
   Easy: 'bg-yellow-300',

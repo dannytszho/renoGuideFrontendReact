@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { PreviousButton } from '../Utils/Button'
 import { useState } from 'react'
 
-const AWS_S3_IMAGE_BUCKET = 'aws-trails-trailsimagebucket'
-
 const CreateTrailPage = () => {
   const [file, setFile] = useState('')
   const [hostUrl, setHostUrl] = useState('')
@@ -14,7 +12,8 @@ const CreateTrailPage = () => {
     const file = event.target.files[0]
     const fileKey = event.target.files[0].name
 
-    const hostUrl = `https://${AWS_S3_IMAGE_BUCKET}.s3.amazonaws.com/public/${fileKey}`
+    const hostUrl = `https://${process.env.REACT_APP_AWS_S3_IMAGE_BUCKET}.s3.amazonaws.com/public/${fileKey}`
+    console.log(hostUrl)
 
     try {
       await Storage.put(file.name, file, {
@@ -28,7 +27,6 @@ const CreateTrailPage = () => {
       console.log(err)
     }
   }
-  console.log(hostUrl)
 
   const navigate = useNavigate()
   const handleSubmit = async (e: any) => {

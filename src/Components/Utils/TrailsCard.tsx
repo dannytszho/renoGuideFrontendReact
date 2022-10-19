@@ -1,29 +1,8 @@
-import { ReactElement, useState } from 'react'
+import { useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-import { deleteTrail } from './FetchTrails'
-
-export interface CardProps {
-  primary_key: string
-  name: string
-  length: string
-  elevation: string
-  duration: string
-  rating: ReactElement
-  image: string
-  urL: string
-  difficulty: 'Easy' | 'Moderate' | 'Hard'
-  userId: string
-}
-
-export const colorMap = {
-  Easy: 'bg-yellow-300',
-  Moderate: 'bg-green-400',
-  Hard: 'bg-red-400',
-  All: 'bg-gray-200',
-}
+import { CardProps, colorMap } from '../Utils/types'
 
 const TrailsCard = ({
-  primary_key,
   image,
   name,
   difficulty,
@@ -31,19 +10,14 @@ const TrailsCard = ({
   elevation,
   duration,
   rating,
-  urL,
-  userId,
 }: CardProps) => {
   const [showModal, setShowModal] = useState(false)
-  const [deleteModal, setDeleteModal] = useState(false)
-  const [selectedTrailId, setSelectedTrailId] = useState('')
 
   return (
     <div>
       <button
         onClick={() => {
           setShowModal(true)
-          setSelectedTrailId(primary_key)
         }}
         className="bg-white font-iceland text-black m-10 rounded-xl overflow-hidden shadow-lg w-[300px] hover:scale-105 hover:tansition hover:duration-200"
       >

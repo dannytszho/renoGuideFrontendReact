@@ -2,21 +2,7 @@ import { useEffect, useState } from 'react'
 import { getUserTrails } from '../Utils/FetchTrails'
 import Rating from '../Utils/Rating'
 import UserTrailsCard from '../Utils/UserTrailsCard'
-
-export interface UserTrailsType {
-  primary_key: string
-  id: string
-  name: string
-  length: string
-  elevation: string
-  duration: string
-  difficulty: 'Easy' | 'Moderate' | 'Hard'
-  rating: string
-  imageUrl: string
-  url: string
-  userId: string
-  setUpdateUserTrails: React.Dispatch<React.SetStateAction<boolean>>
-}
+import { UserTrailsType } from '../Utils/types'
 
 const MyTrailPage = () => {
   const [userTrails, setUserTrails] = useState<any>([])
