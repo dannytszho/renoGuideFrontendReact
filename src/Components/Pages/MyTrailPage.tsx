@@ -21,7 +21,6 @@ export interface UserTrailsType {
 const MyTrailPage = () => {
   const [userTrails, setUserTrails] = useState<any>([])
   const [updateUserTrails, setUpdateUserTrails] = useState(false)
-  console.log(userTrails)
 
   useEffect(() => {
     getUserTrails().then(data => {
@@ -38,11 +37,6 @@ const MyTrailPage = () => {
     }
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [updateUserTrails])
-
-  // const prevLength = useRef<number>(0)
-  // prevLength.current = userTrails.data.getUserTrails.length
-  // console.log(prevLength)
-  // console.log(prevLength.current)
 
   return (
     <div className="grid justify-center">

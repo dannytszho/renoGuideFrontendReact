@@ -116,53 +116,6 @@ const TrailsCard = ({
                   >
                     Close
                   </button>
-                  {userId ? (
-                    <>
-                      <button
-                        className="bg-red-400 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => {
-                          console.log('me first')
-                          setDeleteModal(true)
-                        }}
-                      >
-                        Delete Trail
-                      </button>
-                    </>
-                  ) : null}
-
-                  {deleteModal ? (
-                    <>
-                      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                        <div className="relative w-40 my-6 mx-auto max-w-3xl">
-                          <div className="border-2 rounded-lg bg-white">
-                            <h1 className="text-center">
-                              Are you sure to delete?
-                            </h1>
-                            <div className="flex justify-evenly">
-                              <button
-                                className="bg-blue-600 w-12 m-2 rounded-md"
-                                onClick={async () => {
-                                  console.log('Deleted!')
-                                  await deleteTrail(selectedTrailId)
-                                  setDeleteModal(false)
-                                  setShowModal(false)
-                                }}
-                              >
-                                Yes
-                              </button>
-                              <button
-                                className="bg-red-600 w-12 m-2 rounded-md"
-                                onClick={() => setDeleteModal(false)}
-                              >
-                                No
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  ) : null}
                 </div>
               </div>
             </div>

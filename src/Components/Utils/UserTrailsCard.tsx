@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { deleteTrail } from './FetchTrails'
 
-export interface userCardProps {
+export interface UserCardProps {
   primary_key: string
   name: string
   length: string
@@ -35,7 +35,7 @@ const UserTrailsCard = ({
   urL,
   userId,
   setUpdateUserTrails,
-}: userCardProps) => {
+}: UserCardProps) => {
   const [showModal, setShowModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
   const [selectedTrailId, setSelectedTrailId] = useState('')
@@ -118,7 +118,7 @@ const UserTrailsCard = ({
                   >
                     Close
                   </button>
-                  {userId ? (
+                  {
                     <>
                       <button
                         className="bg-red-400 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -131,7 +131,7 @@ const UserTrailsCard = ({
                         Delete Trail
                       </button>
                     </>
-                  ) : null}
+                  }
 
                   {deleteModal ? (
                     <>
