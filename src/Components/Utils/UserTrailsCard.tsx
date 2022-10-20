@@ -1,8 +1,17 @@
 import { useState } from 'react'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-import { CardProps, colorMap } from '../Utils/types'
+import { deleteTrail } from './FetchTrails'
+import { UserCardProps } from '../Utils/types'
 
-const TrailsCard = ({
+export const colorMap = {
+  Easy: 'bg-yellow-300',
+  Moderate: 'bg-green-400',
+  Hard: 'bg-red-400',
+  All: 'bg-gray-200',
+}
+
+const UserTrailsCard = ({
+  primary_key,
   image,
   name,
   difficulty,
@@ -10,14 +19,18 @@ const TrailsCard = ({
   elevation,
   duration,
   rating,
-}: CardProps) => {
+  setUpdateUserTrails,
+}: UserCardProps) => {
   const [showModal, setShowModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [selectedTrailId, setSelectedTrailId] = useState('')
 
   return (
     <div>
       <button
         onClick={() => {
           setShowModal(true)
+          setSelectedTrailId(primary_key)
         }}
         className="bg-white font-iceland text-black m-10 rounded-xl overflow-hidden shadow-lg w-[300px] hover:scale-105 hover:tansition hover:duration-200"
       >
@@ -90,6 +103,52 @@ const TrailsCard = ({
                   >
                     Close
                   </button>
+                  {
+                    <>
+                      <button
+                        className="bg-red-400 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                        onClick={() => {
+                          setDeleteModal(true)
+                        }}
+                      >
+                        Delete Trail
+                      </button>
+                    </>
+                  }
+
+                  {deleteModal ? (
+                    <>
+                      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                        <div className="relative w-40 my-6 mx-auto max-w-3xl">
+                          <div className="border-2 rounded-lg bg-white">
+                            <h1 className="text-center">
+                              Are you sure to delete?
+                            </h1>
+                            <div className="flex justify-evenly">
+                              <button
+                                className="bg-blue-600 w-12 m-2 rounded-md"
+                                onClick={async () => {
+                                  await deleteTrail(selectedTrailId)
+                                  setDeleteModal(false)
+                                  setShowModal(false)
+                                  setUpdateUserTrails(true)
+                                }}
+                              >
+                                Yes
+                              </button>
+                              <button
+                                className="bg-red-600 w-12 m-2 rounded-md"
+                                onClick={() => setDeleteModal(false)}
+                              >
+                                No
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -101,4 +160,4 @@ const TrailsCard = ({
   )
 }
 
-export default TrailsCard
+export default UserTrailsCard

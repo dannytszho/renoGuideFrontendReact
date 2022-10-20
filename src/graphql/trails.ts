@@ -1,6 +1,6 @@
 export const GET_ALL_TRAILS = `
 query {
-  getAllTrails(limit: 3) {
+  getAllTrails(limit: 20) {
     primary_key
     name
     rating
@@ -13,3 +13,30 @@ query {
   }
 }
 `
+export const GET_USER_TRAILS = `
+query {
+  getUserTrails(limit: 20) {
+    primary_key
+    name
+    rating
+    url
+    duration
+    difficulty
+    length
+    elevation
+    imageUrl
+    userId
+  }
+}
+`
+export const CREATE_TRAIL = `
+mutation createTrail($input: TrailCreateInput) {
+  createTrail(input: $input) {
+    name
+    rating
+    duration
+    difficulty
+    length
+    elevation
+  }
+}`

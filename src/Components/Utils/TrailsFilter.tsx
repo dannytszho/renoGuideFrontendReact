@@ -1,4 +1,4 @@
-import { TrailsType } from '../Pages/HikingTrailsPage'
+import { TrailsType } from '../Utils/types'
 
 interface Props {
   trailsData: TrailsType[]

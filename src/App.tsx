@@ -8,6 +8,8 @@ import NavBar from './Components/Utils/NavBar'
 import HikingTrailsPageGQL from './Components/Pages/HikingTrailsPageGQL'
 import LoginPage from './Components/Pages/LoginPage'
 import RequiredAuth from './Components/Utils/RequiredAuth'
+import CreateTrailPage from './Components/Pages/CreateTrailPage'
+import MyTrailPage from './Components/Pages/MyTrailPage'
 
 function App() {
   return (
@@ -23,6 +25,22 @@ function App() {
                 element={
                   <RequiredAuth>
                     <HikingTrailsPageGQL />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/createtrail"
+                element={
+                  <RequiredAuth>
+                    <CreateTrailPage />
+                  </RequiredAuth>
+                }
+              />
+              <Route
+                path="/my-trail"
+                element={
+                  <RequiredAuth>
+                    <MyTrailPage />
                   </RequiredAuth>
                 }
               />
