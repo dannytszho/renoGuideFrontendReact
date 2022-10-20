@@ -3,6 +3,7 @@ import '@aws-amplify/ui-react/styles.css'
 import { useEffect, useMemo } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { PreviousButton } from '../Utils/Button'
+import Footer from '../Utils/Footer'
 
 const formFields = {
   signUp: {
@@ -58,6 +59,9 @@ const LoginPage = () => {
           socialProviders={['google']}
         ></Authenticator>
       </div>
+      <br />
+      <Footer />
+      <br />
     </>
   )
 }

@@ -48,6 +48,7 @@ const HikingTrailsPage = () => {
       </div>
       <br />
       <Footer />
+      <br />
     </>
   )
 }

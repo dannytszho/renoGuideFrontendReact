@@ -138,7 +138,9 @@ const HomePage = () => {
         </LongButton>
       </section>
       {/* Footer section */}
+      <br />
       <Footer />
+      <br />
     </>
   )
 }

@@ -55,7 +55,7 @@ const NavBar = () => {
                 {/* {session?.getIdToken().payload.email} */}
                 {info?.given_name}
               </button>
-              <div className="hidden peer-hover:flex hover:flex w-42 bg-white rounded-md">
+              <div className="absolute hidden peer-hover:flex hover:flex w-42 bg-white rounded-md">
                 <Link
                   to="/my-trail"
                   className="hover:bg-gray-300 hover:cursor-pointer w-full hover:rounded-md p-2"

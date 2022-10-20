@@ -103,6 +103,7 @@ const HikingTrailsPageGQL = () => {
       </div>
       <br />
       <Footer />
+      <br />
     </>
   )
 }
