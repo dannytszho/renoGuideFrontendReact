@@ -15,8 +15,8 @@ Amplify.configure({
     oauth: {
       domain: 'omybuddha.auth.us-east-1.amazoncognito.com',
       scope: ['openid', 'email', 'profile'],
-      redirectSignIn: 'http://localhost:3000/',
-      redirectSignOut: 'http://localhost:3000/',
+      redirectSignIn: `${window.location.origin}/`,
+      redirectSignOut: `${window.location.origin}/`,
       responseType: 'code',
     },
   },

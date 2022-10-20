@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
 import HikingTrailsPage from './Components/Pages/HikingTrailsPage'
