@@ -25,7 +25,7 @@ export const getUserTrails = async () => {
     const res = await API.graphql(graphqlOperation(GET_USER_TRAILS))
     return res
   } catch (e) {
-    console.log(e)
+    throw e
   }
 }
 
@@ -39,6 +39,6 @@ export const deleteTrail = async (id: string) => {
     const res = await API.graphql(graphqlOperation(DELETE_TRAIL, { id: id }))
     return res
   } catch (e) {
-    console.log(e)
+    throw e
   }
 }

@@ -13,18 +13,16 @@ const CreateTrailPage = () => {
     const fileKey = event.target.files[0].name
 
     const hostUrl = `https://${process.env.REACT_APP_AWS_S3_IMAGE_BUCKET}.s3.amazonaws.com/public/${fileKey}`
-    console.log(hostUrl)
 
     try {
-      await Storage.put(file.name, file, {
+      await Storage.put(fileKey, file, {
         contentType: 'image/png',
-      }).then(result => {
-        console.log(result)
+      }).then(() => {
         setFile(URL.createObjectURL(file))
         setHostUrl(hostUrl)
       })
     } catch (err) {
-      console.log(err)
+      throw err
     }
   }
 
@@ -68,7 +66,6 @@ const CreateTrailPage = () => {
           <input
             type="file"
             onChange={e => {
-              console.log('upload')
               handleUploadImage(e)
             }}
           />

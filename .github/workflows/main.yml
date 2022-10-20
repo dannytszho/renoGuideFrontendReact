@@ -6,7 +6,7 @@ name: Deploy Website
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: ['master']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,9 +37,3 @@ jobs:
         run: aws s3 sync ./build s3://${{ secrets.BUCKET_NAME }}
       - name: Create Cloudfront Invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
-        
-      
-      
-      
-      
-      

@@ -33,30 +33,22 @@ const formFields = {
 const LoginPage = () => {
   const { route } = useAuthenticator(context => [context.route])
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const navigatePathName = useMemo(() => {
+    const state = location.state as { from: Location }
+
+    if (state && state.from) {
+      return state.from
+    }
+    return '/'
+  }, [location])
+
   useEffect(() => {
     if (route === 'authenticated') {
-      navigate('/')
+      navigate(navigatePathName, { replace: true })
     }
-  }, [route, navigate])
-
-  // const { route } = useAuthenticator(context => [context.route])
-  // const navigate = useNavigate()
-  // const location = useLocation()
-
-  // // const navigatePathName = useMemo(() => {
-  // //   const state = location.state as { from: Location }
-
-  // //   if (state && state.from) {
-  // //     return state.from
-  // //   }
-  // //   return '/'
-  // // }, [location])
-
-  // // useEffect(() => {
-  // //   if (route === 'authenticated') {
-  // //     navigate(navigatePathName, { replace: true })
-  // //   }
-  // // }, [route, navigate, navigatePathName])
+  }, [route, navigate, navigatePathName])
   return (
     <>
       <PreviousButton />
