@@ -5,6 +5,7 @@ import { PreviousButton } from '../Utils/Button'
 import { useState } from 'react'
 import Footer from '../Utils/Footer'
 
+const s3Bucket = 'aws-trails-trailsimagebucket'
 const CreateTrailPage = () => {
   const [file, setFile] = useState('')
   const [hostUrl, setHostUrl] = useState('')
@@ -13,7 +14,7 @@ const CreateTrailPage = () => {
     const file = event.target.files[0]
     const fileKey = event.target.files[0].name
 
-    const hostUrl = `https://${process.env.REACT_APP_AWS_S3_IMAGE_BUCKET}.s3.amazonaws.com/public/${fileKey}`
+    const hostUrl = `https://${s3Bucket}.s3.amazonaws.com/public/${fileKey}`
 
     try {
       await Storage.put(fileKey, file, {
