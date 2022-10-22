@@ -22,7 +22,7 @@ Amplify.configure({
   },
   Storage: {
     AWSS3: {
-      bucket: process.env.REACT_APP_AWS_S3_IMAGE_BUCKET,
+      bucket: 'aws-trails-trailsimagebucket',
       region: 'us-east-1',
     },
   },
