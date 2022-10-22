@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './index.css'
 import HikingTrailsPage from './Components/Pages/HikingTrailsPage'
 import HomePage from './Components/Pages/HomePage'
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Authenticator.Provider>
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<NavBar />}>
               <Route index element={<HomePage />} />
@@ -48,7 +48,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
             </Route>
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </Authenticator.Provider>
     </>
   )
